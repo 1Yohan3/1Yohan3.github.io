@@ -1,10 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Cybersecurity Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #0e0e0e;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1, p {
+            text-align: center;
+        }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .project-button {
+            background-color: #282828;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s, color 0.3s;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .project-button:hover {
+            background-color: #00ff00;
+            color: #0e0e0e;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Cybersecurity Projects Page!</h1>
-    <p>Here, you will find details about my cybersecurity projects and documentation.</p>
+    <h1>My Cybersecurity Projects</h1>
+    <p>Welcome to my cybersecurity projects page! Click on a project to learn more about it.</p>
+    <div class="button-container">
+        <a class="project-button" href="project1.html">Project 1</a>
+        <a class="project-button" href="project2.html">Project 2</a>
+        <a class="project-button" href="project3.html">Project 3</a>
+        <a class="project-button" href="project4.html">Project 4</a>
+    </div>
 </body>
 </html>
