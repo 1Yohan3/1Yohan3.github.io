@@ -1,7 +1,7 @@
 // js/script.js
 document.addEventListener('DOMContentLoaded', () => {
     const cursor = document.querySelector('.cursor');
-    const text = "Welcome to my Cybersecurity Projects Page!";
+    const text = "Greetings User, Welcome to my Cybersecurity Projects";
     let index = 0;
 
     function type() {
