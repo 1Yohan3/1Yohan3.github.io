@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 1: Home Lab Setup on Samsung S9 Tablet</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Project 1: Home Lab Setup on Samsung S9 Tablet</h1>
+        <p>
+            In this project, I detail the steps I took to set up a comprehensive home lab environment on my Samsung S9 tablet. This setup includes the installation and configuration of Termux, Microsoft Azure, VNC, and other essential tools for cybersecurity practice and experimentation.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            Setting up a home lab on a mobile device like the Samsung S9 tablet presents unique challenges and opportunities. Leveraging Termux, a powerful terminal emulator for Android, alongside cloud services like Microsoft Azure, allows for a flexible and portable cybersecurity training environment.
+        </p>
+
+        <h2>Prerequisites</h2>
+        <ul>
+            <li>Samsung Galaxy S9+ tablet with Android OS</li>
+            <li>Stable internet connection</li>
+            <li>Microsoft Azure account</li>
+            <li>Basic knowledge of Linux commands</li>
+        </ul>
+
+        <h2>Step 1: Installing Termux</h2>
+        <p>
+            Termux is a versatile terminal emulator for Android that provides a Linux environment on your tablet. It allows you to install and run various Linux packages directly on your device.
+        </p>
+        <ol>
+            <li>
+                **Download Termux:**
+                <ul>
+                    <li>Open the Google Play Store on your tablet.</li>
+                    <li>Search for "Termux" and install the app.</li>
+                </ul>
+            </li>
+            <li>
+                **Update and Upgrade Packages:**
+                <p>Once installed, open Termux and run the following commands to update the package list and upgrade existing packages:</p>
+                <pre><code>pkg update && pkg upgrade</code></pre>
+            </li>
+            <li>
+                **Install Essential Packages:**
+                <p>Install Git, Python, and other necessary tools:</p>
+                <pre><code>pkg install git python vim</code></pre>
+            </li>
+        </ol>
+
+        <h2>Step 2: Setting Up Microsoft Azure</h2>
+        <p>
+            Microsoft Azure provides cloud computing services that are invaluable for creating virtual machines, networking environments, and more. Integrating Azure with your home lab allows for scalable and powerful cybersecurity experiments.
+        </p>
+        <ol>
+            <li>
+                **Create an Azure Account:**
+                <ul>
+                    <li>Navigate to the <a href="https://azure.microsoft.com/">Microsoft Azure website</a>.</li>
+                    <li>Sign up for a free account or log in if you already have one.</li>
+                </ul>
+            </li>
+            <li>
+                **Set Up a Virtual Machine (VM):**
+                <ul>
+                    <li>In the Azure portal, click on **"Create a resource"** and select **"Virtual Machine"**.</li>
+                    <li>Choose the appropriate VM size and operating system (e.g., Ubuntu Server).</li>
+                    <li>Configure networking settings, ensuring that SSH access is enabled.</li>
+                    <li>Review and create the VM.</li>
+                </ul>
+            </li>
+            <li>
+                **Connect to the VM via SSH:**
+                <p>Retrieve the VM's public IP address from the Azure portal and use Termux to connect:</p>
+                <pre><code>ssh username@your_vm_ip_address</code></pre>
+            </li>
+        </ol>
+
+        <h2>Step 3: Installing VNC Server</h2>
+        <p>
+            VNC (Virtual Network Computing) allows you to remotely access the graphical desktop environment of your VM, providing a more user-friendly interface for managing your lab.
+        </p>
+        <ol>
+            <li>
+                **Install VNC Server on the VM:**
+                <p>Once connected to your VM via SSH, install the VNC server:</p>
+                <pre><code>sudo apt update
+sudo apt install tightvncserver</code></pre>
+            </li>
+            <li>
+                **Configure VNC Server:**
+                <p>Set up VNC server by creating a password and starting the server:</p>
+                <pre><code>vncserver
+vncserver -kill :1
+nano ~/.vnc/xstartup</code></pre>
+                <p>Add the following lines to the `xstartup` file to start a desktop environment:</p>
+                <pre><code>#!/bin/bash
+xrdb $HOME/.Xresources
+startxfce4 &amp;</code></pre>
+                <p>Make the script executable:</p>
+                <pre><code>chmod +x ~/.vnc/xstartup</code></pre>
+            </li>
+            <li>
+                **Start VNC Server:**
+                <pre><code>vncserver :1</code></pre>
+            </li>
+            <li>
+                **Install a VNC Viewer on Your Tablet:**
+                <ul>
+                    <li>Download a VNC viewer app from the Google Play Store, such as <strong>VNC Viewer</strong> by RealVNC.</li>
+                    <li>Open the VNC viewer and add a new connection using your VM's IP address and display number (e.g., `your_vm_ip_address:1`).</li>
+                    <li>Enter your VNC password to connect.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2>Step 4: Configuring Additional Tools</h2>
+        <p>
+            Enhance your home lab with additional cybersecurity tools and configurations to simulate various scenarios and practice defensive strategies.
+        </p>
+        <ol>
+            <li>
+                **Install Nmap:**
+                <p>Network scanning tool for discovering hosts and services:</p>
+                <pre><code>sudo apt install nmap</code></pre>
+            </li>
+            <li>
+                **Set Up Metasploit Framework:**
+                <p>Powerful tool for developing and executing exploit code against remote targets:</p>
+                <pre><code>curl https://raw.githubusercontent.com/rapid7/metasploit-framework/master/scripts/install.sh | bash</code></pre>
+            </li>
+            <li>
+                **Install Wireshark:**
+                <p>Network protocol analyzer for troubleshooting and analysis:</p>
+                <pre><code>sudo apt install wireshark</code></pre>
+            </li>
+            <li>
+                **Configure Firewall with UFW:**
+                <p>Manage firewall rules to secure your VM:</p>
+                <pre><code>sudo apt install ufw
+sudo ufw allow ssh
+sudo ufw allow 5901/tcp
+sudo ufw enable</code></pre>
+            </li>
+        </ol>
+
+        <h2>Step 5: Securing Your Home Lab</h2>
+        <p>
+            Security is paramount when setting up a home lab. Implement best practices to ensure your environment remains safe and resilient.
+        </p>
+        <ol>
+            <li>
+                **Change Default SSH Port:**
+                <p>Modify the SSH configuration to use a non-standard port:</p>
+                <pre><code>sudo nano /etc/ssh/sshd_config</code></pre>
+                <p>Change the line:</p>
+                <pre><code>Port 22</code></pre>
+                <p>To:</p>
+                <pre><code>Port 2222</code></pre>
+                <p>Restart SSH service:</p>
+                <pre><code>sudo systemctl restart ssh</code></pre>
+            </li>
+            <li>
+                **Set Up Fail2ban:**
+                <p>Protect against brute-force attacks:</p>
+                <pre><code>sudo apt install fail2ban
+sudo systemctl enable fail2ban
+sudo systemctl start fail2ban</code></pre>
+            </li>
+            <li>
+                **Enable Two-Factor Authentication (2FA) on Azure:**
+                <ul>
+                    <li>Log in to the Azure portal.</li>
+                    <li>Navigate to your account settings and enable 2FA for added security.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2>Conclusion</h2>
+        <p>
+            Setting up a home lab on a Samsung S9 tablet using Termux and Microsoft Azure provides a flexible and portable environment for cybersecurity training and experimentation. By following these steps, you can create a secure and efficient workspace to hone your skills and simulate real-world scenarios.
+        </p>
+
+        <h2>References</h2>
+        <ul>
+            <li><a href="https://termux.com/">Termux Official Website</a></li>
+            <li><a href="https://azure.microsoft.com/">Microsoft Azure</a></li>
+            <li><a href="https://www.realvnc.com/en/connect/download/viewer/">RealVNC Viewer</a></li>
+            <li><a href="https://nmap.org/">Nmap</a></li>
+            <li><a href="https://metasploit.help.rapid7.com/docs/installing-the-metasploit-framework">Metasploit Framework</a></li>
+            <li><a href="https://www.wireshark.org/">Wireshark</a></li>
+            <li><a href="https://www.fail2ban.org/">Fail2ban</a></li>
+        </ul>
+
+        <a href="index.html" class="project-button">← Back to Home</a>
+    </div>
+    <footer>
+        &copy; 2024 <a href="https://github.com/<username>"><username></a>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
