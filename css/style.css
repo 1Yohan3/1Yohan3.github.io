@@ -81,3 +81,52 @@ footer {
         border-color: transparent;
     }
 }
+
+
+/* Enhanced Styles */
+
+/* Header Animation */
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+h1 {
+    animation: flicker 3s infinite;
+}
+
+/* Link Hover Effect */
+a:hover {
+    color: #ff0000;
+    border-bottom: 1px solid #ff0000;
+}
+
+/* Button Active Effect */
+.project-button:active {
+    transform: scale(0.98);
+    box-shadow: 0 0 10px #00ff00;
+}
+
+/* Code Blocks Styling */
+pre {
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+code {
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Footer Styling */
+footer {
+    color: #00ff00;
+    font-size: 14px;
+}
+
+footer a {
+    color: #00ff00;
+}
