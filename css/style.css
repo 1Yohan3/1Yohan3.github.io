@@ -130,3 +130,33 @@ footer {
 footer a {
     color: #00ff00;
 }
+
+/* Navigation Bar */
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a; /* Matches your existing dark theme */
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* Center the navigation items */
+}
+
+.navbar li {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li a {
+    display: block;
+    color: #00ff00; /* Matches your theme's green color */
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.navbar li a:hover {
+    background-color: #00ff00; /* Highlight with green background */
+    color: #0d0d0d; /* Switch to dark text */
+}
