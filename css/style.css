@@ -160,28 +160,3 @@ footer a {
     background-color: #00ff00; /* Highlight with green background */
     color: #0d0d0d; /* Switch to dark text */
 }
-
-/* Globe Container */
-#globeViz {
-    width: 100%; /* Full width for responsiveness */
-    height: 400px; /* Adjust height to fit your design */
-    margin: 20px 0; /* Space around the globe */
-    border: 2px solid #00ff00; /* Add a border to match the theme */
-    border-radius: 10px; /* Rounded corners for a modern look */
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Glowing effect */
-    position: relative; /* Positioning for hologram effect */
-    overflow: hidden; /* Hide overflow for clean edges */
-}
-
-/* Hologram Effect */
-#globeViz::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(0, 255, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 70%);
-    border-radius: 50%;
-    pointer-events: none; /* Prevent interaction with the overlay */
-}
