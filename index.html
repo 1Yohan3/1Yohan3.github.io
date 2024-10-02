@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cybersecurity Projects</title>
     <link rel="stylesheet" href="css/style.css">
-        <script src="https://unpkg.com/globe.gl"></script> <!-- Include the globe.gl library -->
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -22,28 +21,15 @@
     <div class="container">
         <h1><span class="cursor"></span></h1>
         <p>Your gateway to my cybersecurity projects and documentation.</p>
-                <!-- Add the globe container -->
-        <div id="globeViz" style="width: 600px; height: 600px; margin: 50px auto;"></div>
-
-        <div class="button-container">
-            <a class="project-button" href="project1.html">Project 1: Home Lab Setup</a>
-            <a class="project-button" href="project2.html">Project 2</a>
-            <a class="project-button" href="project3.html">Project 3</a>
-            <a class="project-button" href="project4.html">Project 4</a>
-        </div>
+        <div id="globeViz"></div> <!-- Globe container -->
     </div>
     
     <!-- Footer -->
     <footer>
         &copy; 2024 <a href="https://github.com/1Yohan3">1Yohan3</a>
     </footer>
+    <script src="https://unpkg.com/globe.gl/dist/globe.gl.js"></script>
     <script src="js/script.js"></script>
-    <script>
-        // Create the globe
-        const world = Globe()
-            .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
-            .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
-            (document.getElementById('globeViz'));
-    </script>
+
 </body>
 </html>
