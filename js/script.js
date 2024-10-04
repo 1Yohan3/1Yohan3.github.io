@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Rotating Quotes
 const quotes = [
-    "“The only secure system is one that is powered off, cast in a basement and buried 20 feet deep...”",
+    "“Cybersecurity is not just about protecting your devices. It’s about protecting yourself.”",
     "“Hackers are breaking the systems for profit. Before, it was about intellectual curiosity and pursuit of knowledge and thrill, and now hacking is big business.”",
     "“Security is always excessive until it’s not enough.”",
     "“There is no such thing as a perfect cybersecurity system.”"
