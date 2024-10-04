@@ -16,3 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     type();
 });
+
+// Rotating Quotes
+const quotes = [
+    "“The only secure system is one that is powered off, cast in a basement and buried 20 feet deep...”",
+    "“Hackers are breaking the systems for profit. Before, it was about intellectual curiosity and pursuit of knowledge and thrill, and now hacking is big business.”",
+    "“Security is always excessive until it’s not enough.”",
+    "“There is no such thing as a perfect cybersecurity system.”"
+];
+
+let currentQuote = 0;
+
+function rotateQuotes() {
+    document.getElementById("quote").innerText = quotes[currentQuote];
+    currentQuote = (currentQuote + 1) % quotes.length;
+}
+
+// Rotate quotes every 5 seconds
+setInterval(rotateQuotes, 5000);
